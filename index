@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projectile Launcher Robot | Santo Gezelin</title>
+  <meta name="description" content="Projectile Launcher Robot — overview, photos, and video links." />
+
+  <style>
+    :root{
+      --bg:#ffffff;
+      --card:#ffffff;
+      --text:#0f172a;
+      --muted:#475569;
+      --line:#e5e7eb;
+      --accent:#2563eb;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    .wrap{max-width:980px; margin:0 auto; padding:42px 20px 80px}
+
+    .top{
+      padding:26px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:var(--card);
+      box-shadow:0 10px 30px rgba(0,0,0,.08);
+    }
+
+    .titleRow{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:baseline;
+    }
+
+    h1{margin:0; font-size:30px}
+    .muted{color:var(--muted)}
+    .pillrow{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
+    .pill{
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:#f8fafc;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .btns{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px}
+    .btn{
+      display:inline-block;
+      padding:10px 14px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background:#f8fafc;
+      color:var(--text);
+    }
+    .btn.primary{
+      border-color:var(--accent);
+      background:#eff6ff;
+      color:#1d4ed8;
+    }
+
+    .tabs{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:18px;
+      border-bottom:1px solid var(--line);
+      padding-bottom:10px;
+    }
+    .tab{
+      border:1px solid var(--line);
+      background:#f8fafc;
+      color:var(--text);
+      padding:8px 12px;
+      border-radius:999px;
+      cursor:pointer;
+      font-size:14px;
+    }
+    .tab.active{
+      border-color:var(--accent);
+      background:#eff6ff;
+      color:#1d4ed8;
+    }
+
+    .tabpanel{display:none; margin-top:16px}
+    .tabpanel.active{display:block}
+
+    .photoSingle{
+      border:1px solid var(--line);
+      border-radius:16px;
+      overflow:hidden;
+      background:#f8fafc;
+      max-width:520px;
+    }
+    .photoSingle img{
+      width:100%;
+      height:auto;
+      display:block;
+    }
+    .caption{
+      padding:10px 12px;
+      font-size:13px;
+      color:var(--muted);
+      border-top:1px solid var(--line);
+      background:#fff;
+    }
+
+    .videolist{margin:0; padding-left:18px}
+    .videolist li{margin:8px 0}
+
+    .footer{
+      margin-top:40px;
+      padding-top:18px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:14px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <div class="top">
+      <div class="titleRow">
+        <h1>Projectile Launcher Robot</h1>
+        <p class="muted" style="margin:0">2022</p>
+      </div>
+
+      <p class="muted" style="margin:10px 0 0">
+        Built a ping-pong ball projectile launcher robot using an Arduino Mega to control actuators and motors.
+        The system was designed for repeatable firing and rapid target engagement in a speed and accuracy competition.
+        Our team placed <b>3rd out of 80 teams</b>.
+      </p>
+
+      <div class="pillrow">
+        <span class="pill">Arduino Mega</span>
+        <span class="pill">Motors &amp; Actuators</span>
+        <span class="pill">Control Logic</span>
+        <span class="pill">Competition Build</span>
+      </div>
+
+      <div class="btns">
+        <a class="btn" href="https://santogezelin.github.io/" rel="noopener">← Back to Portfolio</a>
+        <a class="btn primary" href="https://github.com/santogezelin/projlaunch" target="_blank" rel="noopener">
+          View Repo
+        </a>
+      </div>
+
+      <!-- TABS -->
+      <div class="tabs">
+        <button class="tab active" id="tab-photos">Photos</button>
+        <button class="tab" id="tab-videos">Video Links</button>
+      </div>
+
+      <!-- PHOTOS -->
+      <div class="tabpanel active" id="panel-photos">
+        <div class="photoSingle">
+          <a href="photos/projlaunch1.jpg" target="_blank" rel="noopener">
+            <img src="photos/projlaunch1.jpg" alt="Projectile launcher robot">
+          </a>
+          <div class="caption">
+            Projectile launcher robot — competition setup
+          </div>
+        </div>
+      </div>
+
+      <!-- VIDEOS -->
+      <div class="tabpanel" id="panel-videos">
+        <div class="card">
+          <ul class="videolist">
+            <li><a href="https://youtube.com/YOUR_LINK_HERE" target="_blank" rel="noopener">Competition run</a></li>
+            <li><a href="https://youtube.com/YOUR_LINK_HERE" target="_blank" rel="noopener">Launcher firing demo</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer">
+      © <span id="y"></span> Santo Gezelin · Built with GitHub Pages
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    const tabPhotos = document.getElementById('tab-photos');
+    const tabVideos = document.getElementById('tab-videos');
+    const panelPhotos = document.getElementById('panel-photos');
+    const panelVideos = document.getElementById('panel-videos');
+
+    tabPhotos.onclick = () => {
+      tabPhotos.classList.add('active');
+      tabVideos.classList.remove('active');
+      panelPhotos.classList.add('active');
+      panelVideos.classList.remove('active');
+    };
+
+    tabVideos.onclick = () => {
+      tabVideos.classList.add('active');
+      tabPhotos.classList.remove('active');
+      panelVideos.classList.add('active');
+      panelPhotos.classList.remove('active');
+    };
+  </script>
+</body>
+</html>
