@@ -97,6 +97,13 @@
     .tabpanel{display:none; margin-top:16px}
     .tabpanel.active{display:block}
 
+    .card{
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:18px;
+      background:var(--card);
+    }
+
     .photoSingle{
       border:1px solid var(--line);
       border-radius:16px;
@@ -172,7 +179,7 @@
             <img src="photos/projlaunch1.jpg" alt="Projectile launcher robot">
           </a>
           <div class="caption">
-            Projectile launcher robot — competition setup
+            <b>Right:</b> projectile launching mechanism &middot; <b>Left:</b> automated reloading mechanism
           </div>
         </div>
       </div>
@@ -180,9 +187,11 @@
       <!-- VIDEOS -->
       <div class="tabpanel" id="panel-videos">
         <div class="card">
+          <p class="muted" style="margin:0 0 12px">
+            Add your video links below (YouTube, Drive, etc.).
+          </p>
           <ul class="videolist">
-            <li><a href="https://youtube.com/YOUR_LINK_HERE" target="_blank" rel="noopener">Competition run</a></li>
-            <li><a href="https://youtube.com/YOUR_LINK_HERE" target="_blank" rel="noopener">Launcher firing demo</a></li>
+            <li><a href="https://youtu.be/1WUZ0tPtf0M" target="_blank" rel="noopener">Launcher firing demo</a></li>
           </ul>
         </div>
       </div>
