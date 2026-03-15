@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Projectile Launcher Robot | Santo Gezelin</title>
-  <meta name="description" content="Projectile Launcher Robot — overview, photos, and video links." />
+  <title>Santo Gezelin | Portfolio</title>
+  <meta name="description" content="Santo Gezelin — Mechanical Engineering student focused on Automation & Controls and Robotics." />
 
   <style>
     :root{
@@ -14,207 +14,577 @@
       --muted:#475569;
       --line:#e5e7eb;
       --accent:#2563eb;
+      --accent-light:#eff6ff;
+      --accent-dark:#1d4ed8;
     }
-    *{box-sizing:border-box}
+
+    *{box-sizing:border-box; margin:0; padding:0}
+
     body{
-      margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      background:var(--bg);
-      color:var(--text);
-      line-height:1.55;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
     }
+
     a{color:var(--accent); text-decoration:none}
     a:hover{text-decoration:underline}
 
-    .wrap{max-width:980px; margin:0 auto; padding:42px 20px 80px}
+    .wrap{max-width:1020px; margin:0 auto; padding:48px 20px 80px}
 
-    .top{
-      padding:26px;
+    /* ── HERO ── */
+    .hero{
+      padding:28px;
       border:1px solid var(--line);
       border-radius:18px;
-      background:var(--card);
-      box-shadow:0 10px 30px rgba(0,0,0,.08);
+      background: var(--card);
+      box-shadow: 0 10px 30px rgba(0,0,0,.08);
     }
-
-    .titleRow{
+    .hero-inner{
       display:flex;
+      gap:28px;
+      align-items:center;
       justify-content:space-between;
-      gap:12px;
       flex-wrap:wrap;
-      align-items:baseline;
     }
+    .hero-text{flex:1; min-width:260px}
+    .name{font-size:34px; font-weight:700}
+    .tag{margin:6px 0 0; color:var(--muted)}
+    .chips{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+    .chip{padding:7px 10px; border-radius:999px; border:1px solid var(--line); background:#f8fafc; color:var(--muted); font-size:13px}
+    .btns{display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-top:16px}
+    .btn{display:inline-block; padding:10px 14px; border-radius:12px; border:1px solid var(--line); background:#f8fafc; color:var(--text); font-size:14px; cursor:pointer}
+    .btn.primary{border-color:var(--accent); background:var(--accent-light); color:var(--accent-dark)}
+    .headshot{width:150px; height:150px; border-radius:50%; object-fit:cover; border:1px solid var(--line); box-shadow:0 8px 20px rgba(0,0,0,.12); background:#f8fafc; flex:0 0 auto}
 
-    h1{margin:0; font-size:30px}
-    .muted{color:var(--muted)}
-    .pillrow{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
-    .pill{
-      padding:7px 10px;
-      border-radius:999px;
+    /* ── SECTION ── */
+    .section{margin-top:40px}
+    .section-title{font-size:22px; font-weight:700; margin-bottom:16px}
+
+    /* ── PROJECT CARDS ── */
+    .projects-grid{display:grid; gap:24px}
+
+    .project-card{
       border:1px solid var(--line);
-      background:#f8fafc;
-      color:var(--muted);
-      font-size:13px;
-    }
-
-    .btns{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px}
-    .btn{
-      display:inline-block;
-      padding:10px 14px;
-      border-radius:12px;
-      border:1px solid var(--line);
-      background:#f8fafc;
-      color:var(--text);
-    }
-    .btn.primary{
-      border-color:var(--accent);
-      background:#eff6ff;
-      color:#1d4ed8;
-    }
-
-    .tabs{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:18px;
-      border-bottom:1px solid var(--line);
-      padding-bottom:10px;
-    }
-    .tab{
-      border:1px solid var(--line);
-      background:#f8fafc;
-      color:var(--text);
-      padding:8px 12px;
-      border-radius:999px;
-      cursor:pointer;
-      font-size:14px;
-    }
-    .tab.active{
-      border-color:var(--accent);
-      background:#eff6ff;
-      color:#1d4ed8;
-    }
-
-    .tabpanel{display:none; margin-top:16px}
-    .tabpanel.active{display:block}
-
-    .card{
-      border:1px solid var(--line);
-      border-radius:16px;
-      padding:18px;
-      background:var(--card);
-    }
-
-    .photoSingle{
-      border:1px solid var(--line);
-      border-radius:16px;
+      border-radius:18px;
       overflow:hidden;
-      background:#f8fafc;
-      max-width:520px;
+      background:var(--card);
+      box-shadow:0 4px 16px rgba(0,0,0,.06);
     }
-    .photoSingle img{
+
+    /* top media area */
+    .project-media{
+      position:relative;
+      background:#f1f5f9;
+    }
+
+    /* photo strip */
+    .photo-strip{
+      display:flex;
+      gap:0;
+      overflow-x:auto;
+      scroll-snap-type:x mandatory;
+      -webkit-overflow-scrolling:touch;
+      scrollbar-width:none;
+    }
+    .photo-strip::-webkit-scrollbar{display:none}
+    .photo-strip img{
+      flex:0 0 100%;
       width:100%;
-      height:auto;
+      height:360px;
+      object-fit:cover;
+      scroll-snap-align:start;
       display:block;
     }
-    .caption{
-      padding:10px 12px;
-      font-size:13px;
-      color:var(--muted);
-      border-top:1px solid var(--line);
-      background:#fff;
+
+    /* single photo no strip */
+    .photo-single img{
+      width:100%;
+      height:360px;
+      object-fit:cover;
+      display:block;
     }
 
-    .videolist{margin:0; padding-left:18px}
-    .videolist li{margin:8px 0}
+    /* dot nav */
+    .strip-nav{
+      position:absolute;
+      bottom:10px;
+      left:50%;
+      transform:translateX(-50%);
+      display:flex;
+      gap:6px;
+    }
+    .strip-dot{
+      width:7px; height:7px;
+      border-radius:50%;
+      background:rgba(255,255,255,.55);
+      cursor:pointer;
+      border:none;
+      padding:0;
+      transition:background .15s;
+    }
+    .strip-dot.active{background:#fff}
 
-    .footer{
-      margin-top:40px;
-      padding-top:18px;
-      border-top:1px solid var(--line);
+    /* photo captions row */
+    .photo-captions{
+      display:flex;
+      gap:0;
+      border-bottom:1px solid var(--line);
+    }
+    .photo-caption-item{
+      flex:1;
+      padding:8px 12px;
+      font-size:12px;
       color:var(--muted);
-      font-size:14px;
+      font-style:italic;
+      border-right:1px solid var(--line);
+    }
+    .photo-caption-item:last-child{border-right:none}
+
+    /* video embed */
+    .video-embed{
+      position:relative;
+      padding-bottom:56.25%;
+      height:0;
+      overflow:hidden;
+      background:#000;
+    }
+    .video-embed iframe{
+      position:absolute; top:0; left:0;
+      width:100%; height:100%;
+      border:none;
+    }
+
+    /* video list thumbnails */
+    .video-list{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      padding:16px;
+      background:#f8fafc;
+      border-bottom:1px solid var(--line);
+    }
+    .video-thumb{
+      flex:1;
+      min-width:180px;
+      max-width:320px;
+      border-radius:12px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      background:#fff;
+      text-decoration:none;
+      display:block;
+      transition:box-shadow .15s;
+    }
+    .video-thumb:hover{box-shadow:0 4px 16px rgba(0,0,0,.12); text-decoration:none}
+    .video-thumb-img{
+      position:relative;
+      background:#0f172a;
+    }
+    .video-thumb-img img{
+      width:100%; height:120px; object-fit:cover; display:block; opacity:.85;
+    }
+    .play-icon{
+      position:absolute;
+      top:50%; left:50%;
+      transform:translate(-50%,-50%);
+      width:40px; height:40px;
+      border-radius:50%;
+      background:rgba(255,255,255,.9);
+      display:flex; align-items:center; justify-content:center;
+    }
+    .play-icon svg{margin-left:3px}
+    .video-thumb-label{
+      padding:8px 10px;
+      font-size:13px;
+      color:var(--text);
+      font-weight:500;
+    }
+
+    /* media tabs */
+    .media-tabs{
+      display:flex;
+      gap:0;
+      border-bottom:1px solid var(--line);
+      background:#f8fafc;
+    }
+    .media-tab{
+      padding:10px 18px;
+      font-size:13px;
+      font-weight:500;
+      cursor:pointer;
+      border:none;
+      background:transparent;
+      color:var(--muted);
+      border-bottom:2px solid transparent;
+      margin-bottom:-1px;
+    }
+    .media-tab.active{color:var(--accent-dark); border-bottom-color:var(--accent)}
+    .media-panel{display:none}
+    .media-panel.active{display:block}
+
+    /* project body */
+    .project-body{padding:20px 22px 22px}
+    .project-header{display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px; margin-bottom:12px}
+    .project-name{font-size:20px; font-weight:700}
+    .project-year{font-size:14px; color:var(--muted)}
+    .project-bullets{padding-left:18px}
+    .project-bullets li{margin:6px 0; color:var(--muted); font-size:15px}
+    .award-badge{display:inline-flex; align-items:center; gap:6px; margin-bottom:10px; padding:5px 10px; border-radius:999px; background:#fefce8; border:1px solid #fde68a; font-size:13px; color:#92400e}
+
+    /* ── OTHER SECTIONS ── */
+    .card{border:1px solid var(--line); border-radius:16px; padding:18px; background:var(--card)}
+    .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:14px}
+    .span4{grid-column:span 4}
+    .span6{grid-column:span 6}
+    .span12{grid-column:span 12}
+    .kicker{font-size:13px; color:var(--muted); font-weight:700; margin:0 0 6px}
+    .role{font-weight:700; margin:0}
+    .muted{color:var(--muted)}
+    .titleRow{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; align-items:baseline}
+    ul{margin:10px 0 0 18px; padding:0}
+    li{margin:6px 0}
+
+    .footer{margin-top:40px; padding-top:18px; border-top:1px solid var(--line); color:var(--muted); font-size:14px}
+
+    @media(max-width:760px){
+      .hero-inner{flex-direction:column; align-items:flex-start}
+      .headshot{width:110px; height:110px}
+      .name{font-size:28px}
+      .span4,.span6{grid-column:span 12}
+      .photo-strip img,.photo-single img{height:240px}
+      .video-thumb{max-width:100%}
     }
   </style>
 </head>
 
 <body>
-  <div class="wrap">
+<div class="wrap">
 
-    <div class="top">
-      <div class="titleRow">
-        <h1>Projectile Launcher Robot</h1>
-        <p class="muted" style="margin:0">2022</p>
+  <!-- HERO (unchanged) -->
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <h1 class="name">Santo Gezelin</h1>
+        <p class="tag">Mechanical Engineering (University of Utah, May 2026)</p>
+        <div class="chips">
+          <span class="chip">GPA 3.625</span>
+          <span class="chip">Robotics Minor</span>
+        </div>
+        <div class="btns">
+          <a class="btn primary" href="Gezelin_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
+          <a class="btn" href="https://www.linkedin.com/in/santogezelin" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn" href="mailto:santog711@gmail.com">Email</a>
+          <a class="btn" href="tel:+19493951018">Call</a>
+        </div>
       </div>
+      <img class="headshot" src="headshot.jpg" alt="Santo Gezelin headshot" />
+    </div>
+  </div>
 
-      <p class="muted" style="margin:10px 0 0">
-  Developed and optimized Arduino Mega control code for a ping-pong ball projectile launcher robot,
-  focusing on firing timing, reload sequencing, and repeatability in a speed and accuracy competition.
-  Our team placed <b>3rd out of 80 teams</b>.
-</p>
+  <!-- ── PROJECTS (first section) ── -->
+  <div class="section">
+    <div class="section-title">Projects</div>
+    <div class="projects-grid">
 
+      <!-- 1. MECHATRONICS ROBOT -->
+      <div class="project-card">
 
-      <div class="btns">
-        <a class="btn" href="https://santogezelin.github.io/portfolio" rel="noopener">← Back to Portfolio</a>
-      </div>
+        <div class="media-tabs">
+          <button class="media-tab active" onclick="switchTab(this,'mech-photos')">Photos</button>
+          <button class="media-tab" onclick="switchTab(this,'mech-videos')">Videos</button>
+        </div>
 
-      <!-- TABS -->
-      <div class="tabs">
-        <button class="tab active" id="tab-photos">Photos</button>
-        <button class="tab" id="tab-videos">Video Links</button>
-      </div>
-
-      <!-- PHOTOS -->
-      <div class="tabpanel active" id="panel-photos">
-        <div class="photoSingle">
-          <a href="photos/projlaunch1.jpg" target="_blank" rel="noopener">
-            <img src="photos/projlaunch1.jpg" alt="Projectile launcher robot">
-          </a>
-          <div class="caption">
-             <b>Left:</b> automated reloading mechanism&middot; <b>Right:</b> projectile launching mechanism 
+        <!-- Photos panel -->
+        <div class="media-panel active" id="mech-photos">
+          <div class="project-media">
+            <div class="photo-strip" id="strip-mech">
+              <img src="mechrobot/media/robot_overview.jpg" alt="Robot overview">
+              <img src="mechrobot/media/wiring1.jpg" alt="Wiring 1">
+              <img src="mechrobot/media/wiring2.jpg" alt="Wiring 2">
+              <img src="mechrobot/media/wiring3.jpg" alt="Wiring 3">
+              <img src="mechrobot/media/manrobo1.jpg" alt="Laser-cut chassis">
+              <img src="mechrobot/media/manrobo2.jpg" alt="Machined support rods">
+              <img src="mechrobot/media/manrobo3.jpg" alt="Color sensor arm">
+            </div>
+            <div class="strip-nav" id="nav-mech"></div>
           </div>
+          <div style="padding:8px 14px; font-size:12px; color:var(--muted); font-style:italic; border-bottom:1px solid var(--line); background:#f8fafc;">
+            Swipe or use dots to browse · 7 photos
+          </div>
+        </div>
+
+        <!-- Videos panel -->
+        <div class="media-panel" id="mech-videos">
+          <div class="video-list">
+            <a class="video-thumb" href="https://youtu.be/Qn3LEcKYAao" target="_blank" rel="noopener">
+              <div class="video-thumb-img">
+                <img src="https://img.youtube.com/vi/Qn3LEcKYAao/mqdefault.jpg" alt="">
+                <div class="play-icon"><svg width="14" height="16" viewBox="0 0 14 16"><polygon points="0,0 14,8 0,16" fill="#1d4ed8"/></svg></div>
+              </div>
+              <div class="video-thumb-label">Basic robot movement</div>
+            </a>
+            <a class="video-thumb" href="https://youtu.be/pvkGFhPw7iU" target="_blank" rel="noopener">
+              <div class="video-thumb-img">
+                <img src="https://img.youtube.com/vi/pvkGFhPw7iU/mqdefault.jpg" alt="">
+                <div class="play-icon"><svg width="14" height="16" viewBox="0 0 14 16"><polygon points="0,0 14,8 0,16" fill="#1d4ed8"/></svg></div>
+              </div>
+              <div class="video-thumb-label">Early PID line following</div>
+            </a>
+            <a class="video-thumb" href="https://youtu.be/mJBlknoGBs4" target="_blank" rel="noopener">
+              <div class="video-thumb-img">
+                <img src="https://img.youtube.com/vi/mJBlknoGBs4/mqdefault.jpg" alt="">
+                <div class="play-icon"><svg width="14" height="16" viewBox="0 0 14 16"><polygon points="0,0 14,8 0,16" fill="#1d4ed8"/></svg></div>
+              </div>
+              <div class="video-thumb-label">Block pickup and dump</div>
+            </a>
+          </div>
+        </div>
+
+        <div class="project-body">
+          <div class="project-header">
+            <span class="project-name">Mechatronics Robot</span>
+            <span class="project-year">2025</span>
+          </div>
+          <div class="award-badge">🏆 Awarded "Best Wiring"</div>
+          <ul class="project-bullets">
+            <li>Designed and built an autonomous robot for a <em>Dune 2</em>-themed competition</li>
+            <li>Arduino Mega commanded motors, actuators, and sensors; Arduino Uno + XBee for wireless comms</li>
+            <li>PID control for line following and motor position control</li>
+            <li>Laser-cut ABS chassis, FDM 3D-printed structural elements, machined brass support rods</li>
+          </ul>
         </div>
       </div>
 
-      <!-- VIDEOS -->
-      <div class="tabpanel" id="panel-videos">
-        <div class="card">
-          <p class="muted" style="margin:0 0 12px">
-            Youtube Link.
-          </p>
-          <ul class="videolist">
-            <li><a href="https://youtu.be/1WUZ0tPtf0M" target="_blank" rel="noopener">Launcher firing demo</a></li>
+      <!-- 2. PROJECTILE LAUNCHER -->
+      <div class="project-card">
+
+        <div class="media-tabs">
+          <button class="media-tab active" onclick="switchTab(this,'launch-photos')">Photos</button>
+          <button class="media-tab" onclick="switchTab(this,'launch-videos')">Videos</button>
+        </div>
+
+        <div class="media-panel active" id="launch-photos">
+          <div class="project-media photo-single">
+            <img src="projlaunch/photos/projlaunch1.jpg" alt="Projectile launcher robot">
+          </div>
+          <div style="padding:8px 14px; font-size:12px; color:var(--muted); font-style:italic; border-bottom:1px solid var(--line); background:#f8fafc;">
+            <b>Left:</b> automated reloading mechanism · <b>Right:</b> projectile launching mechanism
+          </div>
+        </div>
+
+        <div class="media-panel" id="launch-videos">
+          <div class="video-list">
+            <a class="video-thumb" href="https://youtu.be/1WUZ0tPtf0M" target="_blank" rel="noopener">
+              <div class="video-thumb-img">
+                <img src="https://img.youtube.com/vi/1WUZ0tPtf0M/mqdefault.jpg" alt="">
+                <div class="play-icon"><svg width="14" height="16" viewBox="0 0 14 16"><polygon points="0,0 14,8 0,16" fill="#1d4ed8"/></svg></div>
+              </div>
+              <div class="video-thumb-label">Launcher firing demo</div>
+            </a>
+          </div>
+        </div>
+
+        <div class="project-body">
+          <div class="project-header">
+            <span class="project-name">Projectile Launcher Robot</span>
+            <span class="project-year">2022</span>
+          </div>
+          <div class="award-badge">🥉 3rd place out of 80 teams</div>
+          <ul class="project-bullets">
+            <li>Arduino Mega control code for firing timing, reload sequencing, and repeatability</li>
+            <li>Competed in a speed and accuracy ping-pong ball targeting competition</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 3. CAPSTONE -->
+      <div class="project-card">
+        <div class="project-body" style="padding-top:22px">
+          <div class="project-header">
+            <span class="project-name">Capstone — Kinetic Art Installation</span>
+            <span class="project-year">2025 – Present</span>
+          </div>
+          <ul class="project-bullets">
+            <li>Designing a permanent interactive installation for the J.W. Marriott Jr. Institute (funded by a $25M donation)</li>
+            <li>Flip-disc technology driven by electromagnets; 7-person team</li>
+            <li>Programmed camera-based motion detection in MATLAB, piping data to Arduino</li>
+            <li>Consultant for a 12,000 sq. ft. lab area for engineers and architects</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 4. DRONE INTERCEPTION -->
+      <div class="project-card">
+        <div class="project-body" style="padding-top:22px">
+          <div class="project-header">
+            <span class="project-name">Simulated Drone Interception</span>
+            <span class="project-year">Jan 2026 – Present</span>
+          </div>
+          <ul class="project-bullets">
+            <li>Modeling drone dynamics in discrete-time state space with bounded velocity and accelerations</li>
+            <li>3D A* search with Euclidean heuristics to minimize interception time</li>
+            <li>PyBullet environments with and without obstacles to evaluate performance and robustness</li>
+            <li>Real-time replanning to adapt to dynamic obstacles and target motion</li>
           </ul>
         </div>
       </div>
 
     </div>
+  </div>
 
-    <div class="footer">
-      © <span id="y"></span> Santo Gezelin · Built with GitHub Pages
+  <!-- ── ABOUT ── -->
+  <div class="section">
+    <div class="section-title">About</div>
+    <div class="card">
+      <p class="muted" style="margin:0 0 16px">
+        I am a senior Mechanical Engineering student at the University of Utah graduating in May 2026, working on a senior capstone to design and build a large-scale kinetic art installation for the J.W. Marriott Jr. Institute using flip-disc technology and electromagnets.
+      </p>
+      <p class="muted" style="margin:0 0 16px">
+        I was born in Reno, Nevada, grew up in Newport Beach, California, and built my first computer at twelve with my brother — which sparked my curiosity about how systems come together. I graduated high school as valedictorian and a National Merit Scholar. Both brothers are engineers, so technical problem-solving has always been part of my environment.
+      </p>
+      <p class="muted" style="margin:0">
+        I am looking for mechanical, systems, or robotics roles where I can take ownership of meaningful technical challenges, contribute to complex physical systems, and keep growing as an engineer.
+      </p>
     </div>
   </div>
 
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
+  <!-- ── EDUCATION ── -->
+  <div class="section">
+    <div class="section-title">Education</div>
+    <div class="card">
+      <div class="titleRow">
+        <p class="role">B.S. Mechanical Engineering — University of Utah | May 2026 | GPA 3.625</p>
+      </div>
+      <ul>
+        <li>Robotics minor</li>
+        <li>Dean's List – Fall 2021, Spring 2022, Fall 2023, Spring 2024, Fall 2024, Fall 2025</li>
+        <li>Member of Sigma Phi Epsilon 2021–2024</li>
+        <li>WUE Scholarship Recipient</li>
+      </ul>
+    </div>
+  </div>
 
-    const tabPhotos = document.getElementById('tab-photos');
-    const tabVideos = document.getElementById('tab-videos');
-    const panelPhotos = document.getElementById('panel-photos');
-    const panelVideos = document.getElementById('panel-videos');
+  <!-- ── SKILLS ── -->
+  <div class="section">
+    <div class="section-title">Skills</div>
+    <div class="grid">
+      <div class="card span4">
+        <p class="kicker">Autonomy &amp; Control</p>
+        <ul>
+          <li>PID Control</li>
+          <li>Motion Planning (A*, Dijkstra, D* Lite)</li>
+          <li>State-Space Modeling</li>
+          <li>Kinematic Modeling (DH parameters, Twists/Screws)</li>
+        </ul>
+      </div>
+      <div class="card span4">
+        <p class="kicker">Robotics</p>
+        <ul>
+          <li>Arduino (Mega, Uno)</li>
+          <li>XBee Communication</li>
+          <li>ROS</li>
+          <li>MATLAB, C++, Python, Simulink</li>
+          <li>Motion Tracking (Kinect, MATLAB)</li>
+        </ul>
+      </div>
+      <div class="card span4">
+        <p class="kicker">Hardware &amp; Fabrication</p>
+        <ul>
+          <li>FDM &amp; SLA 3D Printing</li>
+          <li>SOLIDWORKS (CSWA)</li>
+          <li>Basic Machining</li>
+          <li>Soldering &amp; Wiring</li>
+          <li>EAGLE (Autodesk)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-    tabPhotos.onclick = () => {
-      tabPhotos.classList.add('active');
-      tabVideos.classList.remove('active');
-      panelPhotos.classList.add('active');
-      panelVideos.classList.remove('active');
-    };
+  <!-- ── EXPERIENCE ── -->
+  <div class="section">
+    <div class="section-title">Work Experience</div>
+    <div class="grid">
+      <div class="card span12">
+        <div class="titleRow">
+          <p class="role">R&amp;D Engineer Intern · BrightUro</p>
+          <p class="muted" style="margin:0">Irvine, CA · Jun 2024 – Aug 2024</p>
+        </div>
+        <ul>
+          <li>Conducted human factors testing in preparation for 510(k) FDA submission</li>
+          <li>Automated assembly processes through programming and utilization of robots</li>
+          <li>Designed and produced 3D components using SOLIDWORKS to streamline assembly procedures</li>
+          <li>Used AI and Python to scan documents and upload them into an app</li>
+          <li>Participated in root cause analysis after non-conforming products or processes were identified</li>
+        </ul>
+      </div>
+      <div class="card span12">
+        <div class="titleRow">
+          <p class="role">Data Systems &amp; Workflow Engineer Intern · Quantum Surgery Center</p>
+          <p class="muted" style="margin:0">Newport Beach, CA · May 2025 – Aug 2025</p>
+        </div>
+        <ul>
+          <li>Designed and implemented a custom Excel-based CRM to track leads, consultations, and conversions</li>
+          <li>Restructured EMR backend data and workflows, resulting in significantly faster system performance</li>
+          <li>Standardized and organized thousands of patient records, improving data accuracy and integration</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-    tabVideos.onclick = () => {
-      tabVideos.classList.add('active');
-      tabPhotos.classList.remove('active');
-      panelVideos.classList.add('active');
-      panelPhotos.classList.remove('active');
-    };
-  </script>
+  <!-- ── CONTACT ── -->
+  <div class="section">
+    <div class="section-title">Contact</div>
+    <div class="card">
+      <p style="margin:0">
+        <span class="muted">Email:</span> <a href="mailto:santog711@gmail.com">santog711@gmail.com</a><br>
+        <span class="muted">Phone:</span> <a href="tel:+19493951018">949-395-1018</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="footer">© <span id="y"></span> Santo Gezelin · Built with GitHub Pages</div>
+</div>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+
+  /* ── Photo strip dots ── */
+  function initStrip(stripId, navId) {
+    const strip = document.getElementById(stripId);
+    const nav = document.getElementById(navId);
+    if (!strip || !nav) return;
+    const imgs = strip.querySelectorAll('img');
+    const count = imgs.length;
+    if (count <= 1) return;
+
+    const dots = [];
+    imgs.forEach((_, i) => {
+      const d = document.createElement('button');
+      d.className = 'strip-dot' + (i === 0 ? ' active' : '');
+      d.onclick = () => {
+        strip.scrollTo({left: strip.clientWidth * i, behavior:'smooth'});
+      };
+      nav.appendChild(d);
+      dots.push(d);
+    });
+
+    strip.addEventListener('scroll', () => {
+      const idx = Math.round(strip.scrollLeft / strip.clientWidth);
+      dots.forEach((d,i) => d.classList.toggle('active', i === idx));
+    }, {passive:true});
+  }
+
+  initStrip('strip-mech', 'nav-mech');
+
+  /* ── Media tab switcher ── */
+  function switchTab(btn, panelId) {
+    const card = btn.closest('.project-card');
+    card.querySelectorAll('.media-tab').forEach(t => t.classList.remove('active'));
+    card.querySelectorAll('.media-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(panelId).classList.add('active');
+  }
+</script>
 </body>
 </html>
